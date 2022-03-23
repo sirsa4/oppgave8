@@ -25,6 +25,12 @@ const actor = {
                          .slice(0, 200),
             }
         },
+        {
+            type: 'text',
+            name: 'story',
+            title: 'Personal story',
+            description: 'Story of the actor',
+        },
     ],
     preview: {
         select: {

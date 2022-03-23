@@ -1,8 +1,17 @@
+import {Link, useParams} from 'react-router-dom';
 
-const Movie = ({title,actor}) => {
+const Movie = ({title,actor, movie}) => {
+    const {slug} = useParams();
+    
+    const singleMovie = movie.find((film)=>film.slug === slug);
+    console.log(singleMovie);
     return ( 
         <>
-        <h1>Movie Page</h1>
+        <article>
+            <h2>Movie: {singleMovie.title}</h2>
+            <p>Plot: {singleMovie.plot}</p>
+            <button type='button'><Link to='/movies'>Back to Movies page</Link></button>
+        </article>
         </>
      );
 }
