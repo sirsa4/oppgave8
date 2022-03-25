@@ -25,6 +25,11 @@ const movie = {
             },
         },
         {
+            type: 'image',
+            name: 'poster',
+            title: 'Poster',
+        },
+        {
             type: 'reference',
             name: 'actor',
             title: 'Actor',

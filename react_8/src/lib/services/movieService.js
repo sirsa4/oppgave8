@@ -4,6 +4,8 @@ import client from "../client";
 const movies = `
 title,
 plot,
+'poster': poster{asset->{url}},
+_type,
 "slug": slug.current,
 "actor": actor->name.current,
 `
@@ -12,6 +14,7 @@ fullname,
 story,
 "slug": name.current,
 "actor": actor->name.current,
+"img": img{asset->{url}}
 `
 
 const getMovies = async()=>{
@@ -21,7 +24,7 @@ const getMovies = async()=>{
    /* const [film, actor] = await Promise.all([client.fetch(`*[_type == "movie"]{${movies}}`), client.fetch(`*[_type == "actor"]{${actors}}`)]) */
     /* console.log(film); 
     console.log(actor); */
-    console.log(data);
+   /*  console.log(data); */
     return data;
 }
 

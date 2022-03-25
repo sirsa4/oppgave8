@@ -26,6 +26,11 @@ const actor = {
             }
         },
         {
+            type: 'image',
+            name: 'img',
+            title: 'Image',
+        },
+        {
             type: 'text',
             name: 'story',
             title: 'Personal story',

@@ -9,6 +9,7 @@ const Actor = ({ actors, setActors }) => {
   return (
     <>
       <article>
+        <img src={actor?.img.asset.url} alt="Image not found!" />
         <h1>Actor: {actor.fullname}</h1>
         <p>Story: {actor.story}</p>
         <button type="button">

@@ -8,7 +8,7 @@ const options = {
 
 const client = sanityClient({
     ...options,
-    useCdn: false,
+    useCdn: true,
 })
 
 export default client;

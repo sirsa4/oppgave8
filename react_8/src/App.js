@@ -6,6 +6,10 @@ import Home from "./components/Home";
 import Movie from "./components/Movie";
 import Movies from "./components/Movies";
 import Navigation from "./components/Navigation";
+import {ThemeProvider} from 'styled-components';
+import Layout from "./styled/Layout";
+import { theme } from "./styled/theme";
+
 
 function App() {
   //state to store movies data from sanity
@@ -15,15 +19,17 @@ function App() {
   const [actors, setActors] = useState("");
 
   return (
+    <ThemeProvider theme={theme}>
+
     <div className="App">
-      <Navigation />
+    <Navigation />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="movies">
+        <Route path="movies" element={<Layout/>}>
           <Route index element={<Movies movie={movie} setMovie={setMovie}/>} />
           <Route path=":slug" element={<Movie movie={movie}/>} />
         </Route>
-        <Route path="actors">
+        <Route path="actors" element={<Layout/>}>
           <Route
             index
             element={<Actors actors={actors} setActors={setActors} />}
@@ -35,6 +41,7 @@ function App() {
         </Route>
       </Routes>
     </div>
+    </ThemeProvider>
   );
 }
 
