@@ -8,21 +8,29 @@ import Movies from "./components/Movies";
 import Navigation from "./components/Navigation";
 import {ThemeProvider} from 'styled-components';
 import Layout from "./styled/Layout";
-import { theme } from "./styled/theme";
+import { changeTheme, dark,light } from "./styled/theme";
+import { Global } from "./styled/Global";
+import Footer from "./components/Footer";
 
 
 function App() {
+  //theme state
+  const [theme, setTheme] = useState('light');
   //state to store movies data from sanity
   const [movie, setMovie] = useState("");
 
   //state to store actors data from sanity
   const [actors, setActors] = useState("");
 
-  return (
-    <ThemeProvider theme={theme}>
+  
+console.log(theme);
 
+  return (
+    <ThemeProvider theme={theme === 'light' ? light : dark}>
+    <Global/>
     <div className="App">
     <Navigation />
+    <button className="theme" type="button" onClick={()=>changeTheme(theme,setTheme)}>Change theme</button>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="movies" element={<Layout/>}>
@@ -40,6 +48,7 @@ function App() {
           />
         </Route>
       </Routes>
+      <Footer/>
     </div>
     </ThemeProvider>
   );

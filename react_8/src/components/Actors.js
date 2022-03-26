@@ -9,9 +9,11 @@ const Actors = ({actors,setActors}) => {
         console.log(data);
         setActors(data);
     }
+    useEffect(()=>{
+        actorsFunction();
+    },[])
     return ( 
         <>
-        <h1>Actors page</h1>
         {actors?.length > 0? actors.map((person)=>{
             const {fullname, slug} = person;
             return <article key={fullname}>
@@ -19,7 +21,7 @@ const Actors = ({actors,setActors}) => {
                 <Link to={slug}>Read More</Link>
             </article>
         }):null}
-        <button type="button" onClick={actorsFunction}>Get Actors data</button>
+      {/*   <button type="button" onClick={actorsFunction}>Get Actors data</button> */}
         </>
      );
 }

@@ -1,14 +1,14 @@
 import sanityClient from '@sanity/client';
 
 const options = {
-    projectId: 'rmo30pqe',
-    dataset: 'production',
+    projectId: process.env.REACT_APP_SANITY_PROJECT_ID,
+    dataset: process.env.REACT_APP_SANITY_DATASET_NAME,
     apiVersion: '2022-03-22',
 }
 
 const client = sanityClient({
     ...options,
-    useCdn: true,
+    useCdn: process.env.NODE === 'production',
 })
 
 export default client;

@@ -26,6 +26,12 @@ const actor = {
             }
         },
         {
+            type: 'reference',
+            name: 'movies',
+            title: 'Movie',
+            to: {type: 'movie'},
+        },
+        {
             type: 'image',
             name: 'img',
             title: 'Image',

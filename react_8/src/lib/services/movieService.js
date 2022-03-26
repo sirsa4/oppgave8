@@ -13,7 +13,8 @@ const actors = `
 fullname,
 story,
 "slug": name.current,
-"actor": actor->name.current,
+"movies": movies->slug.current,
+
 "img": img{asset->{url}}
 `
 
