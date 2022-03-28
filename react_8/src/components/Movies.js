@@ -20,7 +20,7 @@ const Movies = ({ movie, setMovie }) => {
             const { actor, title, slug, poster, _id } = film;
             console.log(film);
             return (
-              <article key={title} className="bg-slate-100 gap-2">
+              <article key={title} className="movies">
                 <img src={poster?.asset.url} alt='image not found' 
                 />
                 <h2>Movie title: {title}</h2>

@@ -22,6 +22,9 @@ function App() {
   //state to store actors data from sanity
   const [actors, setActors] = useState("");
 
+  //actor by slug to get all movies actor is included in
+  const [oneActor, setOneActor] = useState('');
+
   
 console.log(theme);
 
@@ -44,7 +47,7 @@ console.log(theme);
           />
           <Route
             path=":name"
-            element={<Actor actors={actors} />}
+            element={<Actor oneActor={oneActor} setOneActor={setOneActor} />}
           />
         </Route>
       </Routes>

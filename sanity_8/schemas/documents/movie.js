@@ -36,6 +36,17 @@ const movie = {
             to: {type: 'actor'},
         },
         {
+            type: 'array',
+            name: 'actors',
+            title: 'Actors',
+            of: [
+                {
+                    type: 'reference',
+                    to: [{type: 'actor'}],
+                },
+            ],
+        },
+        {
             type: 'text',
             name: 'plot',
             title: 'Plot',

@@ -33,5 +33,31 @@ export const getActor = async()=>{
     const data = await client.fetch(`*[_type == "actor"]{${actors}}`);
    return data;
 }
+export const getBySlug = async(slug)=>{
+    const data = await client.fetch(`*[_type=="actor" && name.current == $slug]{
+        fullname,
+        _id,
+        story,
+        "img": img{asset->{url}},
+        "relatedMovies": *[_type=='movie' && references(^._id)]{ 
+            title,
+            slug,
+
+          }
+      }`,{slug});
+   return data;
+}
+export const getActors = async(slug)=>{
+    const data = await client.fetch(`*[_type=="actor" && slug.current == $slug]{
+       title,
+       'poster': poster{asset->{url}},
+        "relatedMovies": *[_type=='actor' && references(^._id)]{ 
+            title,
+            slug,
+
+          }
+      }`,{slug});
+   return data;
+}
 
 export default getMovies;
