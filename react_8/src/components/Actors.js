@@ -1,14 +1,15 @@
 import { useState,useEffect } from "react";
-import { getActor } from "../lib/services/movieService";
+import { getActor, getBySlug } from "../lib/services/movieService";
 import {Link} from 'react-router-dom';
 
 const Actors = ({actors,setActors}) => {
     
     const actorsFunction = async()=>{
         const data = await getActor();
-        console.log(data);
+       /*  console.log(data); */
         setActors(data);
     }
+   
     useEffect(()=>{
         actorsFunction();
     },[])

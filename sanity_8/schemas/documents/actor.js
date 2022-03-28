@@ -25,11 +25,22 @@ const actor = {
                          .slice(0, 200),
             }
         },
-        {
+        /* {
             type: 'reference',
             name: 'movies',
             title: 'Movie',
             to: {type: 'movie'},
+        }, */
+        {
+            type: 'array',
+            name: 'movies',
+            title: 'Movies',
+            of: [
+                {
+                    type: 'reference',
+                    to: [{type: 'movie'}],
+                },
+            ],
         },
         {
             type: 'image',
