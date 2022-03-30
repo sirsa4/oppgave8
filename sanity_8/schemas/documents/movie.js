@@ -29,11 +29,22 @@ const movie = {
             name: 'poster',
             title: 'Poster',
         },
-        {
+     /*    {
             type: 'reference',
             name: 'actor',
             title: 'Actor',
             to: {type: 'actor'},
+        }, */
+        {
+            type: 'array',
+            name: 'actors',
+            title: 'Actors',
+            of: [
+                {
+                    type: 'reference',
+                    to: [{type: 'actor'}],
+                },
+            ],
         },
         {
             type: 'text',
